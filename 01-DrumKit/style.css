@@ -59,14 +59,19 @@ body{
 }
 
 @media (max-width: 800px){
+  .keys{
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
   .key{
-    width: 50px;
+    width: 60px;
     margin: .2rem;
     padding: .5rem .2rem;
     font-size: 2rem;
   }
 
   .sound{
-    font-size: 1rem;
+    font-size: .7rem;
   }
 }

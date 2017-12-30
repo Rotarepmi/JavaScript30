@@ -10,6 +10,7 @@ function playOnKey(e) {
 }
 
 function playOnPointer(e) {
+  e.preventDefault();
   const keyCode = this.dataset.key;
   const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
 
