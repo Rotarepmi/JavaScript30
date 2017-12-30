@@ -57,3 +57,16 @@ body{
   font-size: 1.5rem;
   color: gold;
 }
+
+@media (max-width: 800px){
+  .key{
+    width: 50px;
+    margin: .2rem;
+    padding: .5rem .2rem;
+    font-size: 2rem;
+  }
+
+  .sound{
+    font-size: 1rem;
+  }
+}

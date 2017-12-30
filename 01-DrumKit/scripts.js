@@ -28,6 +28,7 @@ const keys = document.querySelectorAll('.key');
 keys.forEach(function(key) {
   key.addEventListener('transitionend', removeTransition);
   key.addEventListener('mouseenter', playOnPointer);
+  key.addEventListener('click', playOnPointer);
 });
 
 window.addEventListener('keydown', playOnKey);
