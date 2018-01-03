@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <!-- Meta Tag -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>CSS Variables</title>
+  <meta name="description" content="Aktualizuj zmienne CSS poprzez JS. CSS Variables są od dawna dostępne w Sass? I co z tego - Sass trzeba kompilować!">
+
+  <!-- stylings -->
+  <link rel="stylesheet" href="./style.css">
+
+  <!--[if lt IE 9]>
+    <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <h2>Aktualizuj zmienne CSS poprzez <span class="hl">JS</span></h2>
+
+  <div class="controls">
+    <label for="spacing">Spacing:</label>
+    <input type="range" name="spacing" min="0" max="200" value="0" data-sizing="px" />
+
+    <label for="blur">Blur:</label>
+    <input type="range" name="blur" min="0" max="25" value="0" data-sizing="px" />
+
+    <label for="base">Kolor bazowy:</label>
+    <input type="color" name="base" value="#ffcc80" />
+  </div>
+
+  <img src="./img/img.jpg" />
+
+  <script src='./scripts.js'></script>
+</body>
+</html>

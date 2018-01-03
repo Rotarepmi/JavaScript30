@@ -1,0 +1,54 @@
+:root{
+  --base: #ffcc80;
+  --spacing: 0px;
+  --blur: 0px;
+}
+
+*{
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body{
+  font-family: Comic Sans MS, sans-serif;
+  background: #0f0c29;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#24243e), color-stop(#302b63), to(#0f0c29));
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #ffffff;
+}
+
+img{
+  padding: var(--spacing);
+  background: var(--base);
+  -webkit-filter: blur(var(--blur));
+          filter: blur(var(--blur));
+  width: 100%;
+  height: auto;
+}
+
+.hl{
+  color: var(--base);
+}
+
+h2{
+  text-align: center;
+}
+
+.controls{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.controls input{
+  margin: 10px;
+}
