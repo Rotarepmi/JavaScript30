@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <!-- Meta Tag -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>JS Clock</title>
+  <meta name="description" content="Analogowy zegarek w twojej przeglądarce? Sprawdzaj godzinę jak hipster!">
+
+  <!--[if lt IE 9]>
+    <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- stylings -->
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+
+    body, html{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: radial-gradient(circle, #a1c4fd, #c2e9fb);
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .clock{
+      width: 300px;
+      height: 300px;
+      position: relative;
+    }
+
+    .clock::after{
+      position: absolute;
+      content: '';
+      width: 110%;
+      height: 110%;
+      top: -5%;
+      left: -5%;
+      border-radius: 50%;
+      border: solid 7px #fff;
+      box-shadow: inset -5px 5px 20px #AAA, -5px 5px 20px #AAA;
+    }
+
+    .clock::before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: #FFF;
+      top: calc(50% - 10px);
+      left: calc(50% - 10px);
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .clock-hand{
+      position: absolute;
+      height: 6px;
+      background: #000;
+      top: calc(50% - 3px);
+      transform-origin: 100%;
+      transform: rotate(90deg);
+    }
+
+    .hour{
+      left: 15%;
+      width: 35%;
+    }
+
+    .minute{
+      left: 5%;
+      width: 45%;
+    }
+
+    .second{
+      width: 50%;
+      height: 4px;
+      top: calc(50% - 2px);
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="clock">
+    <div class="clock-hand hour"></div>
+    <div class="clock-hand minute"></div>
+    <div class="clock-hand second"></div>
+  </div>
+
+  <script>
+    const secondHand = document.querySelector('.second');
+    const minuteHand = document.querySelector('.minute');
+    const hourHand = document.querySelector('.hour');
+
+    function handTransition(hand, degree) {
+      hand.style.transform = `rotate(${degree}deg)`;
+      degree !== 90 ? hand.style.transition = 'all 0.05s ease-in' : hand.style.transition = 'none';
+    }
+
+    function setDate() {
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const secondsDegrees = ((seconds/60)*360)+90;
+      handTransition(secondHand, secondsDegrees);
+
+      const minutes = now.getMinutes();
+      const minutesDegrees = ((minutes/60)*360)+90;
+      handTransition(minuteHand, minutesDegrees);
+
+      const hours = now.getHours();
+      const hoursDegrees = ((hours/12)*360)+90;
+      handTransition(hourHand, hoursDegrees);
+    }
+
+    setInterval(setDate, 1000);
+  </script>
+</body>
+</html>
