@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <!-- Meta Tag -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>Object and Arrays</title>
+  <meta name="description" content="ES6 array and object functions">
+
+  <!-- stylings
+  <link rel="stylesheet" href="./style.css">
+  -->
+  <!--[if lt IE 9]>
+    <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <script>
+    // start with strings, numbers and booleans
+    let age = 100;
+    let age2 = age;
+    console.log(age, age2);
+    age = 200;
+    console.log(age, age2);
+
+    let name = "Jakub";
+    let name2 = name;
+    console.log(name, name2);
+    name = "Kuba";
+    console.log(name, name2);
+
+    // Lets say we have an array
+    const players = ['Jax', 'Jinx', 'Leona', 'Ekko'];
+
+    // and we want to make a copy of it
+    const team = players;
+    console.log(players, team);
+
+    // You might think we can just do something like this:
+    team[3] = 'Lux';
+    console.log(players, team);
+
+    // However what happens when we update that array?
+    // We have edited the original array too!
+    // Why? It's because that is an array referancem not an array copy.
+    // They both point the same array!
+
+    // How to fix this? We take copy instead!
+    const team2 = players.slice();
+
+    // or create a new array that concat the old one in
+    const team3 = [].concat(players);
+
+    // or use ES6 Spread!
+    const team4 = [...players];
+    team4[3] = "Lee Sin";
+    console.log(players, team4);
+
+    // or build new Array and pass payers into it
+    const team5 = Array.from(players);
+    console.log(team5);
+
+    // The same thing goes for objects, let's say we have a person object
+    const person = {
+      name: "Jakub Mandra",
+      age: 24
+    };
+    console.log(person);
+
+    // and think we make copy:
+    const captain = person;
+    captain.role = "captian";
+    console.log(person, captain);
+
+    // how do we take a copy instead?
+    const cap2 = Object.assign({}, person, { role: "leutenet" });
+    console.log(person, cap2);
+
+    // Object ...spread
+    const cap3 = {...person};
+    console.log(cap3);
+
+    const person2 = {
+      name: "Andrew",
+      age: 40,
+      social: {
+        facebook: "andrew.facebook"
+      }
+    }
+
+    const dev = Object.assign({}, person2);
+    dev.name = "Jerry";
+    dev.social.facebook = "Whoops, rewritten!";
+
+    const dev2 = JSON.parse(JSON.stringify(person2));
+    dev2.social.facebook = "This works fine, but it's cheet";
+
+    console.log(person2, dev, dev2);
+  </script>
+</body>
+</html>
