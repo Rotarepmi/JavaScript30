@@ -1,5 +1,5 @@
 # JavaScript30
-30 days of coding funny Apps in vanilla ES6.
+30 funny Apps (and exercises) coded in vanilla ES6.
 
 ## Assumptions
 I code 30 apps and exercises with <a href="https://github.com/wesbos" traget="_blank">Wesbos</a>.
